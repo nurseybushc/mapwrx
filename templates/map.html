@@ -1,0 +1,22 @@
+<ion-view ng-controller="AppCtrl" view-title="Search">
+  <ion-nav-bar class="bar-stable">
+    <ion-nav-back-button>
+  </ion-nav-back-button>
+  </ion-nav-bar>
+  <ion-content>
+    <div lass="list">
+    <label class="item item-input">
+      <input type="text" placeholder="Search" ng-model="searchItem">
+    </label>
+    <label class="item item-input item-select">
+      <div class="input-label">{{selection}}</div>
+      <select ng-model="selection">
+        <option>Substation</option>
+        <option selected>Transformer</option>
+        <option>Light Pole</option>
+      </select>
+    </label>
+    <div class="item item-input button button-positive button-block" ng-click="map()">Search</div>
+  </div>
+  </ion-content>
+</ion-view>
