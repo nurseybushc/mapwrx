@@ -1,15 +1,50 @@
 <ion-view ng-controller="AppCtrl2" view-title="Map">
-  <ion-nav-bar class="bar-stable">
+  <ion-nav-bar class="bar-dark">
     <ion-nav-back-button>
   </ion-nav-back-button>
   </ion-nav-bar>
-  <!--<ion-header-bar class="bar-stable">
-    <h1 class="title">Map</h1>
-  </ion-header-bar>-->
-  <ion-content data-tap-disabled="true">
-    <!--{{ $scope.selection }}-->
-    <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
-
+  <ion-content ng-init="init()">
+    <div id="map-canvas"></div>
+    <div class="modal" id="dirModal">
+      <ion-header-bar align-title="center" class="bar-stable">
+        <h1 class="title">Directions</h1>
+        <div class="buttons">
+          <button class="button button-clear" ng-click="hideDiv()">
+            Close</button>
+        </div>
+      </ion-header-bar>
+      <ion-content>
+        <div id="directions-panel"></div>
+      </ion-content>
+    </div>
+    <div class="modal" id="searchModal">
+      <ion-header-bar align-title="center" class="bar-stable">
+        <h1 class="title">Search</h1>
+        <div class="buttons">
+          <button class="button button-clear" ng-click="hideSearch()">
+            Close</button>
+        </div>
+      </ion-header-bar>
+      <ion-content>
+        <label class="item item-input item-select">
+          <div class="input-label">{{selection}}</div>
+          <select ng-model="selection">
+            <option>Substation</option>
+            <option selected>Transformer</option>
+            <option>Light Pole</option>
+          </select>
+        </label>
+        <div class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Search">
+        </div>
+      </ion-content>
+    </div>
   </ion-content>
-  <ion-footer-bar>{{ $scope.searchItem }}</ion-footer-bar>
+  <ion-footer-bar class="bar-dark">
+    <div class="row">
+      <div class="button col" ng-click="showSearch()" id="searchButton">Search</div>
+      <div class="button col" ng-click="showDiv()" id="showButton">Directions</div>
+    </div>
+  </ion-footer-bar>
 </ion-view>

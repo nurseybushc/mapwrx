@@ -1,3 +1,8 @@
 /* Empty. Add your own CSS if you like */
-/*html, body, ion-view { height: 100%; }*/
-.angular-google-map-container { height: 100vh; }
+
+.scroll {
+  height: 100%;
+}
+#map-canvas {
+  height: 100%;
+}
