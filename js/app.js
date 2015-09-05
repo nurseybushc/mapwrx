@@ -19,7 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .config(function($stateProvider, $urlRouterProvider, $httpProvider) {
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/map');
 
     $stateProvider
       .state('home', {
@@ -53,14 +53,15 @@ angular.module('starter.controllers', [])
       $scope.searchButton = document.getElementById('searchButton');
       $scope.searchButton.style.display = 'block';
 
-      // Setup the loading
+      //$scope.value = "maps://?q=dallas";
+      /* Setup the loading
       $ionicLoading.show({
         content: 'Loading',
         animation: 'fade-in',
         showBackdrop: true,
         maxWidth: 200,
         showDelay: 0
-      });
+      });*/
       var cityCircle;
 
     };
@@ -83,6 +84,7 @@ angular.module('starter.controllers', [])
     };
 
     function initialize() {
+      //var ref = window.open('http://apache.org', '_blank', 'location=yes');
       var directionsService = new google.maps.DirectionsService();//its okay theres no parentheses
       var directionsDisplay = new google.maps.DirectionsRenderer();//its okay theres no parantheses
 
@@ -140,8 +142,7 @@ angular.module('starter.controllers', [])
       }, function(response, status) {
         if (status === google.maps.DirectionsStatus.OK) {
           directionsDisplay.setDirections(response);
-          //$scope.modal.style.display = "block";
-          $ionicLoading.hide();
+          //$ionicLoading.hide();
         } else {
           window.alert('Directions request failed due to ' + status);
         }

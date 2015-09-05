@@ -1,12 +1,20 @@
-<ion-view ng-controller="AppCtrl2" view-title="Map">
-  <ion-nav-bar class="bar-dark">
-    <ion-nav-back-button>
-  </ion-nav-back-button>
-  </ion-nav-bar>
+<ion-view ng-controller="AppCtrl2" view-title="MapWrx">
+  <div class="bar bar-header bar-positive item-input-inset">
+      <button class='button button-clear icon ion-android-car'></button>
+      <!--<h1 class='title col col-60'>Points</h1>-->
+      <label class="item-input-wrapper">
+        <input type="search" placeholder="To:">
+      </label>
+      <button class='button button-clear icon ion-android-more-vertical'></button>
+    <!--<h1 class="title">MapWrx</h1>-->
+</div>
+  <!--<div class="bar bar-subheader bar-positive">
+    <h2 class="title">Sub Header</h2>
+  </div>-->
   <ion-content ng-init="init()">
     <div id="map-canvas"></div>
     <div class="modal" id="dirModal">
-      <ion-header-bar align-title="center" class="bar-stable">
+      <ion-header-bar align-title="center" class="bar-positive">
         <h1 class="title">Directions</h1>
         <div class="buttons">
           <button class="button button-clear" ng-click="hideDiv()">
@@ -18,7 +26,7 @@
       </ion-content>
     </div>
     <div class="modal" id="searchModal">
-      <ion-header-bar align-title="center" class="bar-stable">
+      <ion-header-bar align-title="center" class="bar-positive">
         <h1 class="title">Search</h1>
         <div class="buttons">
           <button class="button button-clear" ng-click="hideSearch()">
@@ -26,6 +34,10 @@
         </div>
       </ion-header-bar>
       <ion-content>
+        <a href="comgooglemaps://?q=dallas" data-rel="external">iOS launch in google maps</a><br>
+        <a href="maps://?q=dallas" data-rel="external">iOS launch in apple maps</a><br>
+        <a href="geo://0,0?q=dallas" data-rel="external">Android launch in google maps</a>
+
         <label class="item item-input item-select">
           <div class="input-label">{{selection}}</div>
           <select ng-model="selection">
@@ -41,10 +53,11 @@
       </ion-content>
     </div>
   </ion-content>
-  <ion-footer-bar class="bar-dark">
-    <div class="row">
-      <div class="button col" ng-click="showSearch()" id="searchButton">Search</div>
-      <div class="button col" ng-click="showDiv()" id="showButton">Directions</div>
+
+  <ion-footer-bar class="bar-positive">
+      <div class="row">
+      <div class="button button-clear col" ng-click='showSearch()' id="searchButton">Search</div>
+      <div class="button button-clear col" ng-click="showDiv()"  id="showButton">Directions</div>
     </div>
   </ion-footer-bar>
 </ion-view>
